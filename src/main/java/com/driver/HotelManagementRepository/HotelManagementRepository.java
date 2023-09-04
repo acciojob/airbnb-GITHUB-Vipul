@@ -36,6 +36,10 @@ public class HotelManagementRepository {
     }
 
     public String getHotelWithMostFacilities() {
+        if(hotelDb.isEmpty())
+        {
+            return "";
+        }
         int max=0;
         String hotelName="";
         for(String hotel:hotelDb.keySet())
@@ -46,10 +50,11 @@ public class HotelManagementRepository {
             }
             else if (max==hotelDb.get(hotel).getFacilities().size())
             {
-               if(Integer.parseInt(hotelName)>Integer.parseInt(hotel))
-               {
-                   hotelName=hotel;
-               }
+                if(hotelName==null){
+                    hotelName=hotel;
+                }else if(hotelName.compareTo(hotel)>0){
+                    hotelName=hotel;
+                }
             }
         }
         return hotelName;
