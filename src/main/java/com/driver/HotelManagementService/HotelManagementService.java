@@ -15,8 +15,8 @@ import java.util.UUID;
 @Service
 public class HotelManagementService
 {
-    @Autowired
-    HotelManagementRepository hotelManagementRepository;
+
+    HotelManagementRepository hotelManagementRepository=new HotelManagementRepository();
 
     public  Integer addUser(User user) {
         return hotelManagementRepository.addUser(user);
